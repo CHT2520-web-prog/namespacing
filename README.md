@@ -4,7 +4,7 @@ _index.php_ is a working solution to the last practical we did on inheritance.
 
 This file contains lots of different classes. We want to:-
 
-1. Place each class definition in a separate file.
+1. Place each class in a separate file.
 2. Organise our classes using namespaces.
 
 First create separate files for each class. Name the files exactly the same as the class name e.g. **Builder.php**. 

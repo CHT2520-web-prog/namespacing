@@ -1,40 +1,74 @@
 <?php
-// spl_autoload_register(function ($class_name) {
-//     echo "<p>spl_autoload_register was called loading {$class_name}</p>";
-//     $class_name = str_replace("\\", DIRECTORY_SEPARATOR, $class_name);
-//     require("{$class_name}.php");
-// });
+class ProjectManager
+{
+    private array $contractors;
+    function __construct()
+    {
+        $this->contractors = [];
+    }
+    public function hireContractor(Contractor $contractor):void{
+        $this->contractors[] = $contractor; 
+    }
 
-// use Projects\ProjectManager;
-// use Contractors\Builder;
-// use Contractors\Joiner;
+    public function buildHouse():void
+    {
+        foreach($this->contractors as $contractor){
+            echo "<p>{$contractor->work()}</p>";
+        }
+    }
+    public function payContractors():void
+    {
+        foreach($this->contractors as $contractor){
+            echo "<p>{$contractor->work()}</p>";
+        }
+    }
+}
 
-// // require("Contractors/Contractor.php");
-// // require("Contractors/Builder.php");
-// // require("Contractors/Joiner.php");
-// // require("Projects/ProjectManager.php");
+//Abstract Contractor class
+abstract class Contractor{
+ protected string $firstName;
+	protected string $lastName;
+	function __construct(string $firstName, string $lastName)
+	{
+		$this->firstName = $firstName;
+		$this->lastName = $lastName;
+	}
+	public function getFullName():string
+	{
+		return "{$this->firstName} {$this->lastName}";
+	}
+	abstract public function work():string;
+	
+	public function pay():string
+	{
+		return "{$this->getFullName()} just got paid.";
+	}
+}
 
-// $builder = new Builder("Jane","Smith");
-// $joiner = new Joiner("Imran","Iqbal");
+// Child classes
+class Builder extends Contractor{
+    public function work():string
+	{
+		return "{$this->getFullName()} has built some walls.";
+	}
+}
+class Joiner extends Contractor{
+    public function work():string
+	{
+		return "{$this->getFullName()} has made some stairs.";
+	}
+}
+
+$builder = new Builder("Jane","Smith");
+$joiner = new Joiner("Imran","Iqbal");
 
  
-// $projectManager = new ProjectManager();
-// $projectManager->hireContractor($builder);
-// $projectManager->hireContractor($joiner);
-// $projectManager->buildHouse();
-// $projectManager->payContractors();
+$projectManager = new ProjectManager();
+$projectManager->hireContractor($builder);
+$projectManager->hireContractor($joiner);
+$projectManager->buildHouse();
+$projectManager->payContractors();
 
-spl_autoload_register(function ($class_name) {
-    $class_name = str_replace("\\", DIRECTORY_SEPARATOR, $class_name);
-    require("{$class_name}.php");
-});
 
-use Models\Film; // import the class
-
-$film = new Film("Wicked", 2025); // can refer to Film directly
-
-echo $film->getAge();
-
-var_dump($film);
 
 ?>
