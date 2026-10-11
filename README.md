@@ -1,5 +1,22 @@
 # Namespacing
 
+- Open your Codespace
+- Clone this repository into your codespace. In the terminal enter:
+```
+git clone https://github.com/CHT2520-web-prog/namespacing
+```
+- In terminal, navigate to the _front-controller_ folder
+
+```
+cd namespacing
+
+```
+
+- Start the web server
+```
+php -S 0.0.0.0:8000
+```
+
 _index.php_ is a working solution to the last practical we did on inheritance. 
 
 This file contains lots of different classes. We want to:-
