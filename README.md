@@ -24,7 +24,7 @@ This file contains lots of different classes. We want to:-
 1. Place each class in a separate file.
 2. Organise our classes using namespaces.
 
-First create separate files for each class. Name the files exactly the same as the class name e.g. **Builder.php**. 
+First create separate files for each class. Name the files exactly the same as the class name e.g. **Builder.php**. Take care over the placement and naming of the folders and files.
 
 Create two namespaces (folders). `Projects` and `Contractors`. 
 
