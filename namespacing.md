@@ -162,7 +162,7 @@ PHP allows us to define an *autoload* function. When we use the *new* keyword, t
 //index.php
 spl_autoload_register(function ($class_name) {
     $class_name = str_replace("\\", DIRECTORY_SEPARATOR, $class_name);
-    require($class_name.'.php');
+    require("{$class_name}.php");
 });
 
 use Models\Film;
@@ -174,7 +174,7 @@ echo "<p>{$film->getAge()}</p>";
 ```php
 function ($class_name) {
     $class_name = str_replace("\\",DIRECTORY_SEPARATOR,$class_name);
-    require($class_name.'.php');
+    require("{$class_name}.php");
 };
 ```
 This function will then be called whenever we try and instantiate an object. In this example the ```$class_name``` variable contains the namespace for the class we are trying to load (e.g. Models\Film). We want to convert this namespace into a file path we can use to load the class. For this reason we replace the backslash (\\) with a forward slash (DIRECTORY_SEPERATOR) i.e. *Models\Film* will become *Models/Film*.   
