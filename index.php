@@ -19,7 +19,7 @@ class ProjectManager
     public function payContractors():void
     {
         foreach($this->contractors as $contractor){
-            echo "<p>{$contractor->work()}</p>";
+            echo "<p>{$contractor->pay()}</p>";
         }
     }
 }
